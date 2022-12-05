@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 # Create your models here.
 
@@ -8,7 +9,8 @@ class Snack(models.Model):
     purchaser = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
     description = models.TextField()
     
-    def __str__(self):
-        return self.title
+    def __str__(cls):
+        return cls.title
     
-    
+    def get_absolute_url(self):
+        return reverse('detail',args=[self.id])
