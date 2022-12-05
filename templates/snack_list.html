@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Snacks list</h1>
+
+{% comment %} <h3>{{object_list}}</h3> {% endcomment %}
+{% for snack in object_list %}
+
+    <li>{{ snack.title }}</li>
+    
+{% endfor %}
+{% endblock content %}
